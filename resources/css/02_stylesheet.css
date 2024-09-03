@@ -1,0 +1,130 @@
+/* CSS 영역 : 스타일 정보 기입 */
+
+/* 1. 속성선택자 */
+/* div 중 name 속성값이 name1 과 "일치" 하는 요소*/
+div[name=name1] {
+    background-color: orangered;
+}
+
+/* div 중 name 속성값에 name1 이 "단어로써 포함* 된 요소*/
+div[name~=name1]{
+    background-color: yellow;
+
+}
+/*div 중 class 속성값이 div 로 "- 앞에 한 단어로써 시작" 되는 요소*/
+div[class|=div]{
+    background-color: cyan;
+}
+
+/*div 중 name 속성값이 na로 "시작"되는 요소*/
+div[name^=na]{
+    background-color: blue;
+}
+
+div[class$=ss]{
+    color: white;
+}
+
+/* div 중 class 속성값에 i 가 "포함" 되어있는 요소*/
+div[class*=i]{
+    background-color: yellow;
+    color: red;
+}
+/* 응용 : class 속성값이 div-class 인 애들 중
+          name 속성값에 name3 이 단어로써 포함되어있는 요소*/
+.div-class[name~=name3]{
+    background-color: pink;
+}
+
+/* 2. 자손선택자 와 후손선택자 */
+/* 2_1. 자손선택자 (a>b : a 요소의 자손들 중에서 b 요소들만 선택)*/
+#test1 >h4{
+    background-color: orangered;
+}
+#test1>ul>li {
+    background-color: cyan;
+}
+/* 자손선택자는 중첩 사용 가능!!*/
+
+/* 2_2. 후손선택자 (a b : a 요소의 후손들 중에서 b 요소들만 선택)*/
+#tset1 li {
+    color: red;
+}
+
+/*3. 동위 선택자*/
+/* 3_1. a+b : a 요소 뒤에 b 요소 하나만을 선택*/
+#test2+div{
+    background-color: yellow;
+}
+#test2+ul{
+    background-color: pink;
+}
+/* 바로 뒤의 요소가 ul 이 아니기 때문에 아예 선택 조차 안됨!! */
+
+
+/* 3_2. a~b : a 요소 뒤에 있는 모든 b 요소들 다 선택*/
+#test2~div{
+    /*background-color: green;*/
+}
+#test2~ul{
+    background-color: deeppink;
+}
+
+/* 4. 반응 선택자 */
+
+.area{
+    background-color: yellowgreen;
+    width: 100px;
+    height: 100px;
+}
+
+/* 선택자 : active */
+#active-test:active{
+    background-color: yellow;
+    color: red;
+    cursor :pointer;
+}
+
+/* 선택자 : hover */
+#hover-test:hover{
+    background-color: maroon;
+    color: white;
+    cursor: pointer;
+}
+
+/*5. 상태 선택자 */
+/* 선택자:checked */
+input[type=checkbox]:checked {
+    width: 20px;
+    height: 20px;
+    /*font-size: 20px;*/ /* 제대로 반영 안됨*/
+}
+
+/* 체크박스가 체크 될 때 글씨 크기도 같이 변경하고 싶다면? */
+/* 동위 선택자 응용하기!! */
+input[type=checkbox]:checked+label{
+    font-size: 20px;
+}
+
+/* 선택자:focus */
+/* input 태그 중 name 속성값이 user 로 시작하는 경우 */
+input[name^=user]{
+    background-color: pink;
+}
+
+/* 선택자:enabled / 선택자:disabled*/
+input[name^=user]:enabled{
+    background-color: blue;
+}
+
+input[name^=user]:disabled{
+    background-color: red;
+}
+
+button:enabled{
+    background-color: fuchsia;
+}
+
+button:disabled{
+    background-color: indigo;
+}
